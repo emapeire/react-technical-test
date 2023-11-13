@@ -43,6 +43,12 @@ p {
   margin: 0 auto;
 }
 
+img {
+  max-width: 50vw;
+  display: flex;
+  margin: 2rem auto;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -88,12 +94,6 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-img {
-  max-width: 50vw;
-  display: flex;
-  margin: 2rem auto;
 }
 
 @media (prefers-color-scheme: light) {
