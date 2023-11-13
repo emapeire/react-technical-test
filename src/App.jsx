@@ -8,19 +8,23 @@ export default function App() {
   const [fact, setFact] = useState()
   const [imageUrl, setImageUrl] = useState()
 
-  // useEffect(() => {}, [])
-  useEffect(() => {
+  const fetchCatFactAndImage = () => {
     fetch(CAT_ENDPOINT_RANDOM_FACT)
       .then((res) => res.json())
       .then((data) => {
         const { fact } = data
         setFact(fact)
 
-        const threeFirstWords = fact.split(' ', 3).join(' ')
+        const threeFirstWords = encodeURIComponent(fact.split(' ', 3).join(' '))
         const CAT_ENDPOINT_IMAGE_URL = `${CAT_PREFIX_IMAGE_URL}${threeFirstWords}`
 
         setImageUrl(CAT_ENDPOINT_IMAGE_URL)
       })
+  }
+
+  // useEffect(() => {}, [])
+  useEffect(() => {
+    fetchCatFactAndImage()
   }, [])
 
   return (
@@ -33,7 +37,7 @@ export default function App() {
           alt={`Image extracted using the fisrt three words for ${fact}`}
         />
       )}
-      <button>Refresh</button>
+      <button onClick={fetchCatFactAndImage}>Refresh</button>
     </div>
   )
 }
