@@ -38,13 +38,14 @@ h1 {
 
 p {
   font-size: 1rem;
-  max-width: 50vw;
+  min-height: 10vh;
+  max-width: 70vw;
   text-align: center;
   margin: 0 auto;
 }
 
 img {
-  max-width: 50vw;
+  height: 50vh;
   display: flex;
   margin: 2rem auto;
 }
