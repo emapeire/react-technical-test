@@ -1,20 +1,8 @@
 /* eslint-disable space-before-function-paren */
-import { useEffect, useState } from 'react'
-import { getFactAndImage } from './services/fact'
+import useFactAndImage from './hooks/useFactAndImage'
 
 export default function App() {
-  const [isFact, setIsFact] = useState()
-  const [imageUrl, setImageUrl] = useState()
-
-  const getNewFactAndImage = async () => {
-    const { fact, imageUrl } = await getFactAndImage()
-    setIsFact(fact)
-    setImageUrl(imageUrl)
-  }
-
-  useEffect(() => {
-    getNewFactAndImage()
-  }, [])
+  const { isFact, imageUrl, getFactAndImage } = useFactAndImage()
 
   return (
     <div>
@@ -28,7 +16,7 @@ export default function App() {
           />
         </>
       )}
-      <button onClick={getNewFactAndImage}>Get new fact</button>
+      <button onClick={getFactAndImage}>Get new fact</button>
     </div>
   )
 }

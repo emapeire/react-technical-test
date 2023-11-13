@@ -1,7 +1,7 @@
 const CAT_ENDPOINT_RANDOM_FACT = 'https://catfact.ninja/fact'
 const CAT_PREFIX_IMAGE_URL = 'https://cataas.com/cat/says/'
 
-export const getFactAndImage = async () => {
+export const fecthFactAndImage = async () => {
   try {
     const res = await fetch(CAT_ENDPOINT_RANDOM_FACT)
     const data = await res.json()
