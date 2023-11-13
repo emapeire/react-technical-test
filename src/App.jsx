@@ -18,6 +18,7 @@ export default function App() {
     <div>
       <h1>Funny facts about cats 😸</h1>
       {fact && <p>{fact}</p>}
+      <button>Refresh</button>
     </div>
   )
 }
