@@ -16,7 +16,7 @@ export default function App() {
 
   return (
     <div>
-      <h1 style={{ fontSize: '2rem' }}>Funny facts about cats 😸</h1>
+      <h1>Funny facts about cats 😸</h1>
       {fact && <p>{fact}</p>}
     </div>
   )

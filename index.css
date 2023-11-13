@@ -32,8 +32,16 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 2em;
   line-height: 1.1;
+}
+
+p {
+  font-size: 1.25em;
+  line-height: 1.5;
+  max-width: 100vh;
+  text-align: center;
+  margin: 0 auto;
 }
 
 #root {
