@@ -10,6 +10,9 @@ test('app show random fact and image', async ({ page }) => {
   const textContent = await text.textContent()
   const imgSrc = await img.getAttribute('src')
 
+  console.debug('textContent:', textContent)
+  console.debug('imgSrc:', imgSrc)
+
   expect(textContent?.length).toBeGreaterThan(0)
   expect(imgSrc?.startsWith(PREFIX_IMAGE_URL)).toBeTruthy()
 })
