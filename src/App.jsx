@@ -10,7 +10,12 @@ export default function App() {
 
   const fetchCatFactAndImage = () => {
     fetch(CAT_ENDPOINT_RANDOM_FACT)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('Something went wrong')
+        }
+        return res.json()
+      })
       .then((data) => {
         const { fact } = data
 
@@ -19,6 +24,9 @@ export default function App() {
 
         setFact(fact)
         setImageUrl(CAT_ENDPOINT_IMAGE_URL)
+      })
+      .catch((error) => {
+        console.error('Error:', error)
       })
   }
 
