@@ -37,10 +37,10 @@ h1 {
 }
 
 p {
-  font-size: 1.25em;
-  line-height: 1.5;
-  max-width: 100vh;
+  font-size: 1rem;
+  max-width: 50vw;
   text-align: center;
+  margin: 0 auto;
 }
 
 #root {
@@ -88,6 +88,12 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+img {
+  max-width: 50vw;
+  display: flex;
+  margin: 2rem auto;
 }
 
 @media (prefers-color-scheme: light) {
