@@ -5,7 +5,7 @@ const CAT_ENDPOINT_RANDOM_FACT = 'https://catfact.ninja/fact'
 const CAT_PREFIX_IMAGE_URL = 'https://cataas.com/cat/says/'
 
 export default function App() {
-  const [fact, setFact] = useState()
+  const [isFact, setIsFact] = useState()
   const [imageUrl, setImageUrl] = useState()
 
   const fetchCatFactAndImage = () => {
@@ -22,7 +22,7 @@ export default function App() {
         const threeFirstWords = fact.split(' ', 3).join(' ')
         const CAT_ENDPOINT_IMAGE_URL = `${CAT_PREFIX_IMAGE_URL}${threeFirstWords}?fontColor=white`
 
-        setFact(fact)
+        setIsFact(fact)
         setImageUrl(CAT_ENDPOINT_IMAGE_URL)
       })
       .catch((error) => {
@@ -38,12 +38,12 @@ export default function App() {
   return (
     <div>
       <h1>Funny facts about cats 😸</h1>
-      {fact && imageUrl && (
+      {isFact && imageUrl && (
         <>
-          <p>{fact}</p>
+          <p>{isFact}</p>
           <img
             src={imageUrl}
-            alt={`Image extracted using the first three words for ${fact}`}
+            alt={`Image extracted using the first three words for ${isFact}`}
           />
         </>
       )}
