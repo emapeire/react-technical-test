@@ -1,38 +1,19 @@
 /* eslint-disable space-before-function-paren */
 import { useEffect, useState } from 'react'
-
-const CAT_ENDPOINT_RANDOM_FACT = 'https://catfact.ninja/fact'
-const CAT_PREFIX_IMAGE_URL = 'https://cataas.com/cat/says/'
+import { getFactAndImage } from './services/fact'
 
 export default function App() {
   const [isFact, setIsFact] = useState()
   const [imageUrl, setImageUrl] = useState()
 
-  const fetchCatFactAndImage = () => {
-    fetch(CAT_ENDPOINT_RANDOM_FACT)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error('Something went wrong')
-        }
-        return res.json()
-      })
-      .then((data) => {
-        const { fact } = data
-
-        const threeFirstWords = fact.split(' ', 3).join(' ')
-        const CAT_ENDPOINT_IMAGE_URL = `${CAT_PREFIX_IMAGE_URL}${threeFirstWords}?fontColor=white`
-
-        setIsFact(fact)
-        setImageUrl(CAT_ENDPOINT_IMAGE_URL)
-      })
-      .catch((error) => {
-        console.error('Error:', error)
-      })
+  const getNewFactAndImage = async () => {
+    const { fact, imageUrl } = await getFactAndImage()
+    setIsFact(fact)
+    setImageUrl(imageUrl)
   }
 
-  // useEffect(() => {}, [])
   useEffect(() => {
-    fetchCatFactAndImage()
+    getNewFactAndImage()
   }, [])
 
   return (
@@ -47,7 +28,7 @@ export default function App() {
           />
         </>
       )}
-      <button onClick={fetchCatFactAndImage}>Refresh</button>
+      <button onClick={getNewFactAndImage}>Get new fact</button>
     </div>
   )
 }
