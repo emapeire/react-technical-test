@@ -13,11 +13,11 @@ export default function App() {
       .then((res) => res.json())
       .then((data) => {
         const { fact } = data
-        setFact(fact)
 
-        const threeFirstWords = encodeURIComponent(fact.split(' ', 3).join(' '))
+        const threeFirstWords = fact.split(' ', 3).join(' ')
         const CAT_ENDPOINT_IMAGE_URL = `${CAT_PREFIX_IMAGE_URL}${threeFirstWords}`
 
+        setFact(fact)
         setImageUrl(CAT_ENDPOINT_IMAGE_URL)
       })
   }
@@ -30,12 +30,14 @@ export default function App() {
   return (
     <div>
       <h1>Funny facts about cats 😸</h1>
-      {fact && <p>{fact}</p>}
-      {imageUrl && (
-        <img
-          src={imageUrl}
-          alt={`Image extracted using the fisrt three words for ${fact}`}
-        />
+      {fact && imageUrl && (
+        <>
+          <p>{fact}</p>
+          <img
+            src={imageUrl}
+            alt={`Image extracted using the first three words for ${fact}`}
+          />
+        </>
       )}
       <button onClick={fetchCatFactAndImage}>Refresh</button>
     </div>
