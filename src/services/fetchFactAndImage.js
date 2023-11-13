@@ -8,7 +8,6 @@ export const fecthFactAndImage = async () => {
     const { fact } = data
 
     const threeFirstWords = encodeURIComponent(fact.split(' ', 3).join(' '))
-    console.log('threeFirstWords:', threeFirstWords)
     const ENDPOINT_IMAGE_URL = `${PREFIX_IMAGE_URL}${threeFirstWords}?fontColor=white`
 
     return {
