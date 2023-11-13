@@ -1,9 +1,9 @@
-import './App.css'
+import './index.css'
 import React from 'react'
 import { createRoot } from 'react-dom'
 
-createRoot(document.getElementById('app')).render(
+createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <h1>Hello, world!</h1>
+    <h1>hola</h1>
   </React.StrictMode>
 )
