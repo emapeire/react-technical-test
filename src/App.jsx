@@ -2,16 +2,16 @@
 import useFactAndImage from './hooks/useFactAndImage'
 
 export default function App() {
-  const { isFact, imageUrl, getFactAndImage } = useFactAndImage()
+  const { isFact, isImage, getFactAndImage } = useFactAndImage()
 
   return (
     <div>
       <h1>Funny facts about cats 😸</h1>
-      {isFact && imageUrl && (
+      {isFact && isImage && (
         <>
           <p>{isFact}</p>
           <img
-            src={imageUrl}
+            src={isImage}
             alt={`Image extracted using the first three words for ${isFact}`}
           />
         </>
