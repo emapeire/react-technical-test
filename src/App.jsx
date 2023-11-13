@@ -15,7 +15,7 @@ export default function App() {
         const { fact } = data
 
         const threeFirstWords = fact.split(' ', 3).join(' ')
-        const CAT_ENDPOINT_IMAGE_URL = `${CAT_PREFIX_IMAGE_URL}${threeFirstWords}`
+        const CAT_ENDPOINT_IMAGE_URL = `${CAT_PREFIX_IMAGE_URL}${threeFirstWords}?fontColor=white`
 
         setFact(fact)
         setImageUrl(CAT_ENDPOINT_IMAGE_URL)
